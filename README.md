@@ -1,17 +1,18 @@
-Reliability of facades and roof tiles
+Reliability-based importance assessment of the components
+in the probabilistic wind load model for structural members
 ==============
 
-Related computer codes.
+In progress paper files.
+For collaborative writing, synchronization, and version control.
 
 
-
-__Code(s):__ Matlab
+__Code(s):__ LaTeX
 
 
 
 __Note(s):__ 
-* Required programs and scripts:
-	* [FERUM](http://www.ifma.fr/FERUM)
+* Related project website:
+	* [ASANA](https://app.asana.com/0/376550004439215/list)
 
 
   
