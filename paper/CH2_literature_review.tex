@@ -58,7 +58,6 @@
 
 \begin{document}
 
-\input{CH1_Introduction}
 
 \section{Review of existing literature} 
  
@@ -138,33 +137,26 @@ Rojiani and Wen \cite{Rojiani_1980} also (among others) investigated the effects
 Several researchers have investigated the influence of wind-directionality on the design wind loads. \\
 Simiu and Filiben \cite{Simiu_1981} show that "cladding loads calculated without taking directional information on extreme wind speeds into account may in certain cases be larger than the actual loads by a factor of two or more." \\
 Isyumov \textit{et. al} \cite{Isyumov_2014} state that "the ASCE 7 directional factor of Kd=0.85 is not unreasonable for the structural and cladding loads for buildings located in areas, where extra-tropical winds dominate." \\
-Davenport \cite{Davenport_1983b} estimated the differences in the risks in the design of cladding pressures when the influence of wind direction is taken into account and found that "if the peak pressure coefficient aligns with a direction of relatively weak winds, the reduction can easily be a factor two". \\
-\\
-Several methods exist for taking into account wind directionality effects. The comparison are often based on semi-probabilistic things i.e. they divide the (semi-probabilistically obtained) design value of the wind speed (or wind load) irrespective of wind direction and divide this by the (semi-probabilistically obtained) design value of the extreme wind speeds (or wind loads) irrespective of wind direction. This resuts in reduction factors to be applied. 
-
+Davenport \cite{Davenport_1983b} estimated the differences in the risks in the design of cladding pressures when the influence of wind direction is taken into account and found that "if the peak pressure coefficient aligns with a direction of relatively weak winds, the reduction can easily be a factor two". 
 
 \subsection{Full probabilistic analysis}
-\added[id=NEM]{Focus of this part are full realiability analyses only, that include all parameters of the DWLC.}\\
+As stated before, the focus of the literature is mostly on the in-depth analysis of a single, selected link only. In the literature, a handful of studies may be found that provide a full-probabilistic assessment which accounts for the uncertainties in the entire DWLC.  \\
 \\
-Literature provides only a handful of studies in which a full probabilistic assessment of wind-loaded structural elements are performed which include the uncertainties in all links from the DWLC. \\
+The ones were Cook and Mayne \cite{Mayne1979109}, who developed a method \added[id=NEM]{often referred to as 'the Simplified Method'} to account for the uncertainties in the wind speeds and the pressure coefficients, where the uncertainties in the other links were kept deterministic.  Many researchers \cite{Kasperski2003527,Harris_2003} have used, discussed and refined this method.\\
 \\
-For the purpose of partial factor calibration Hansen \cite{Hansen_2015} have conducted a full reliability analysis where all the links in the chain were represented as random variables. In the kalibration, they model the terrain effects on the basis of literature and model the extreme wind speeds and the extreme pressure coefficients on the basis of measurement data, however they don't state how they exactly did that. Uncertainties in the wind load model and in the load effects are neglegted and the effects of wind-directionality are not taken into account. The sensitivity of modeling choices on the individual links are not investigated. A similar calibration approach was also conducted by Sedlacek. \\
+Some recent studies did account for the uncertainties in all links jointly. \\
+E.g. for the purpose of partial factor calibration Hansen \cite{Hansen_2015} and Sedlacek provide a full probabilistic design method that takes into account uncertainties in all links. For the probabilistic modeling of each of the parameters choices were made based on literature / sample data. The effects or their modeling choices on the reliability level were however not investigated. \\
 \\
-In a exploratory study \cite{Meinen_2015} investigated the influence of modeling choices on the level of the reliability of a fa\c{c}ade element, where the choice of distribution type, significance of statistical uncertainties .. were investigated. 
+In a super amazing pioneer study \added[id=NEM]{just kidding}, Meinen investigated the influence of some modeling choices ont he reliability level of an element. The results showed that.. ? It is actually interesting to look at the influence of modeling choices on beta-level, as it has a large impact. \\
+\\
+As a result, only limited knowledge exists on the effects of modeling choices on the structural reliability of wind-loaded structural elements, i.e. uncertainty propagation.
+
 
 
 \subsection{Our choices with respect to the modeling of extremes}
-Similar as in the earlier researches, the probabilistic modeling of the terrain effects will be on the basis of literature and expert knowledge. \\
-\\
-As the influences of extreme wind speeds seem large, these will be investigated with and without taking into account wind directionality effects. For reasons of simplicity, the approach of Rijkoord \cite{Rijkoord_1983} will be applied for the modeling of extremes, with the addittional accounting for correlations between incident wind directions.\\
-\\
-As the block method with 1 year extremes is the simplest, most widely applied and furthermore often used for calibration purposes (of e.g. the Dutch standards) this will be taken into account for further analysis. As the discussions with respect to the distribution function are mainly related to the Gumbel and the Weibul, the influence of these on the final result will be investigated. \\
-\\
-For the parameter estimation of the .. the Bayesian method will be applied, as that is the best one.. 
+As it it 
 
-
-
-
+In this research the block-method combined with the Generalized Extreme Value distribution is adopted \cite{CUR_103} \cite{Kasperski2003527} \cite{Holmes2003893}. 
 
 
 

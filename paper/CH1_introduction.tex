@@ -65,7 +65,7 @@
 % -----------------------------------------------------------------------------------------------
 \subsection{Motivation}
 
-Wind is the governing environmental action for many structures; particularly for structural members which can be especially vulnerable to wind loading [ref]. In practice, these structural members are designed using semi-probabilistic design methods, such as partial factor design, or load resistance factor design. To guarantee a safe design these semi-probabilistic methods are (should be) calibrated to codified target reliability levels. For this reliability-based calibration physical models and probabilistic models are needed. The former captures the underlying physical phenomena while the latter accounts for the associated uncertainties. In respect of structural members subject to local wind loads, the probabilistic model of the wind load typically dominates the reliability; therefore, its correct modeling is of crucial importance. The widely accepted and applied Davenport wind loading chain (DWLC) is considered here as the starting point of our investigation. The probabilistic description of uncertainties in this wind loading chain is still under active debate despite the numerous advances in wind engineering [ref]. For instance, the decision on which distribution type to be used for wind extremes can lead to an order of magnitude difference in calculated failure probabilities [ref]. Other decisions and modeling choices can have similar bearing on the calculated failure probability. Therefore, it is of great importance to explore these decisions and associated uncertainties. Furthermore, some aspects, such as the effect of wind directionality and handling of statistical uncertainties, are not yet sufficiently explored. These issues are of particular interest for standardization committees which have few, well-reasoned guidance on probabilistic wind load models. Hence, the aim of this paper is to investigate the effect of some modeling choices and prevalently overlooked aspects using a comprehensive framework by assessing their practical, engineering relevance.
+Wind is the governing environmental action for many structures; particularly for structural members which can be especially vulnerable to wind loading [ref]. In practice, these structural members are designed using semi-probabilistic design methods, such as partial factor design, or load resistance factor design. To guarantee a safe design these semi-probabilistic methods are (should be) calibrated to codified target reliability levels. For this reliability-based calibration physical models and probabilistic models are needed. The former captures the underlying physical phenomena while the latter accounts for the associated uncertainties. In respect of structural members subject to wind, the probabilistic model of the wind load typically dominates the reliability; therefore, its correct modeling is of crucial importance. The widely accepted and applied Davenport wind load chain (DWLC) is considered here as the starting point of our investigation. The probabilistic description of uncertainties in this wind load chain is still under active debate despite the numerous advances in wind engineering [ref]. For instance, the decision on which distribution type to be used for wind extremes can lead to an order of magnitude difference in calculated failure probabilities [ref]. Other decisions and modeling choices can have similar bearing on the calculated failure probability. Therefore, it is of great importance to explore these decisions and associated uncertainties. Furthermore, some aspects, such as the effect of wind directionality and handling of statistical uncertainties, are not yet sufficiently explored. These issues are of particular interest for standardization committees which have few, well-reasoned guidance on probabilistic wind load models. Hence, the aim of this paper is to investigate the effect of some modeling choices and prevalently overlooked aspects using a comprehensive framework by assessing their practical, engineering relevance.
 
 % -----------------------------------------------------------------------------------------------
 \subsection{Problem statement}
@@ -92,22 +92,20 @@ The Davenport wind load chain is selected as the basis of the wind load model. I
 
 The following effects and aspects are investigated by the means of the case study:
 \begin{itemize}
-	\item Distribution type of wind speed and pressure coefficient extremes: Gumbel and three-parameter Weibull distributions are considered, both are maxima types.
-	\item Parameter estimation uncertainty in the distribution of wind speed and pressure coefficient extremes.	
-	\item The effects of taking into account wind directionality effects (and therefore building orientation) using; 
+	\item Wind directionality using:
 	\begin{itemize}
 		\item wind speed extremes in twelve directions (sectors with central angle of $30^{\circ}$) based on on-site measurements;
 		\item maximum and minimum pressure coefficient extremes in twelve directions (sectors with central angle of $30^{\circ}$) based on wind tunnel measurements.
 	\end{itemize}
+	\item Distribution type of wind speed and pressure coefficient extremes: Gumbel and three-parameter Weibull distributions are considered, both are maxima types.
 	\item Distribution type and coefficient of variation of roughness factor.
 	\item Block size for extracting extremes for pressure coefficients: 10~min, 1~min, 10~s block sizes are considered.
+	\item Parameter estimation uncertainty in the distribution of wind speed and pressure coefficient extremes.
+	\item Multiple building orientations (rotating the building with angles $0-360^{\circ}$.
+	\item Multiple structural member locations on the facade (DETAILS).
 	\item Coefficient of variation and partial factor of the resistance.
 \end{itemize}
-The following situations will be considered:
-\begin{itemize}
-	\item Multiple building orientations (rotating the building with angles $0-360^{\circ}$).
-	\item Multiple structural member locations on the facade (DETAILS).
-\end{itemize}
+
 The analysis framework -- consisting the pre-processing of measurements, fitting distribution functions, conducting reliability analysis, and post-processing the results -- is implemented as a computer code (in Matlab language). It is made freely available to facilitate collaboration and for reproducibility (link). It is intended to serve as a basis for future, more focused and comprehensive analysis on selected components and aspects.
 
  % -----------------------------------------------------------------------------------------------
