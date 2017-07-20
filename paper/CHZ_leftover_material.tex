@@ -1,0 +1,51 @@
+
+\section{Left-over material, to be considered at the final stage}
+
+\begin{framed}
+\paragraph{Other tings not yet mentioned}
+\begin{itemize}
+\item The influence of discretization on the results.
+\item Paper of Effect of human error on the reliability of roof panel under uplift wind pressure
+\end{itemize}
+\end{framed}
+
+\begin{framed}
+\added[id=NEM]{Some other comparisons}\\
+For an overview of some of these methods for extreme wind speeds see \cite{Palutikof_1999}. For an overview of method for the modeling of extreme pressure coefficients see for example \cite{Peng201411}. \\
+\\
+Ying and Pandey \cite{Ying_2005} provide a comparative assessment where they apply POT, MIS Standard-Gumbel and MG methods to common wind speed data sets and studied the differences in quantile estimates. Perrin \textit{et. all} \cite{Perrin_2006} compared the use of the Weibull-method with classical EV methods, and found that the "design wind speeds were several meters per second, increasing with increasing return period". \added[]{needs verification} It is remarked that, for reasons of simplicity, in codification purposes mostly the Gumbel distribution is applied. \\
+\\
+In the case of extreme wind speeds, also extensions to the classical methods exist, such as the Method of Independent Storms \cite{Cookbook, Harris_1999}. 
+and extensions to these methods, such as the method of r-largest extremes \footnote{general reference to this}\cite{Twan_1988}.\\ 
+\\
+Given a time-series of the extreme wind speeds, two approaches have been proposed in the literature for estimating design wind loads. The first approach uses the time series of the extreme wind speeds to fit the Gumbel distribution (the common approach). The second approach uses the time series of the square of the wind speeds to fit the Gumbel distribution \cite[297]{Cook_1985}  \cite[254 and 256]{Naess_date}\added[id=NEM]{needs checking} \cite{Harris_1996}. The arguments for the latter rest on the assumption that the parent population fron which the extreme speeds are extracted is appropriately modeled by a distribution that is, approximately, of the Rayleigh type, of which the rate of convergence of the asymptotic Gumbel distribution of epochal maxima would be faster if the maxima consisted of dynamic pressures than if they consisted of wind speeds \cite[297]{Cook_1985} . Consequentially, the application of the first approach rather than the latter results in more conservative design loads \cite[297]{Cook_1985}. \\
+Simiu \textit{et.al.} \cite{Simiu_2001} however investigated this assumption and state that "there is no convincing support that the Gumbel distribution should be used as a model for extreme dynamic pressures".  
+\end{framed}
+
+\begin{framed}
+Alternative titles: 
+\begin{itemize}
+\item Reliability-based importance assessment of the elements in the probabilistic wind load model 
+\item On the determination of the structural reliability of wind-loaded structural elements
+\item The effects of uncertainty propagation in the probabilistic wind load model on the structural reliability of wind loaded structural members. 
+\item The effect of uncertainty propagation in the probabilistic assessment of wind-loaded structural members. 
+\item Uncertainty propagation analysis of the main components of the stochastic wind load model for local wind loads.
+\item Reliability-based uncertainty propagation analysis of the main components of the probabilistic wind load model for structural members. 
+\end{itemize}
+In statistics, propagation of uncertainty (or propagation of error) is the effect of variables' uncertainties on the structural reliability
+\end{framed}
+
+
+\begin{framed}
+\added[id=NEM]{Shorter version regarding the DWLC}\\
+For the modeling of extreme wind loads the principles of the Davenport Wind Loading Chain (DWLC) are widely accepted\cite{Davenport_2002}. The DWLC recognizes that the wind loading is built up out of several components or links,  combined together into a chain (see Figure \ref{fig:wind_loading_chain}). It states that the wind load  
+on a particular building or structure is determined by the combined effects of the local wind climate, which is determined by the large-scale weather systems; the local wind exposure, which is determined by the terrain roughness and topography; the aerodynamic characteristics of the building shape; and the potential for load increases due to possible wind-induced resonant vibrations. The last link in the DWLC recognizes that clear criteria must be in place for judging the acceptability of the predicted loads and responses for both ultimate limit states and serviceability limit states. 
+The quantification of each component is a function of the incident wind direction.
+\end{framed}
+
+
+\begin{framed}
+\textbf{To problem statement or to review:}
+
+Although some studies investigated one of these shortcomings, to our knowledge no paper has provided a comprehensive study before where all three are addressed. For example some recent studies did account for the uncertainties in all links jointly, e.g. for the purpose of partial factor calibration Hansen [?] and Sedlacek [ref]. However, modeling choices and their effect on structural reliability were not investigated. In a super amazing, pioneering study Meinen investigated the influence of some modeling choices on the reliability level of a structural component. The results showed that NUMBERS [ref]. This paper is the extension of that study.
+\end{framed}

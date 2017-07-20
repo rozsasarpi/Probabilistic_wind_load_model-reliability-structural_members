@@ -1,0 +1,419 @@
+%\documentclass[fleqn]{article}
+%\usepackage{graphicx} 
+%\usepackage{here}    
+%\usepackage{amsmath}
+%\textwidth=15.0cm
+%\textheight=22.0cm
+%\topmargin=-1cm
+%\oddsidemargin=-0.3cm
+%\evensidemargin=-0.3cm
+%
+%
+%%packages
+%\usepackage{amsmath}
+%\usepackage{cite}
+%\usepackage[toc,page]{appendix}
+%\usepackage{fancyvrb}
+%\usepackage{tikz}
+%\usepackage{multicol}
+%\usepackage{framed}
+%\usepackage{pgfplots}
+%\usepackage{fixltx2e}
+%\usepackage{subfigure}
+%\usepackage{lscape}
+%\usepackage{enumitem}
+%\usepackage{multirow}
+%\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage{comment}
+%\usepackage{changes}
+%\renewcommand*\descriptionlabel[1]{\hspace\leftmargin$#1$}
+%
+%%tikz labraries
+%\usetikzlibrary{matrix}
+%\usetikzlibrary{decorations.pathreplacing}
+%\usetikzlibrary{positioning}
+%\usetikzlibrary{calc}
+%\usetikzlibrary{shapes,arrows, chains}
+%\usetikzlibrary{intersections}
+%\usetikzlibrary{decorations.markings}
+%\usetikzlibrary{calc,intersections}
+%\usetikzlibrary{patterns}
+%
+%
+%\makeatletter
+%\def\mathcolor#1#{\@mathcolor{#1}}
+%\def\@mathcolor#1#2#3{%
+%  \protect\leavevmode
+%  \begingroup
+%    \color#1{#2}#3%
+%  \endgroup
+%}
+%\makeatother
+%
+%%##### DEFINE YOUR NAME #########################
+%\definechangesauthor[color=blue,name={Arpad Rozsas}]{AR}
+%\definechangesauthor[color=red,name={Nadieh Meinen}]{NEM}
+%%###########################################
+%
+%\begin{document}
+
+\section{Methodology}
+
+
+\subsection{Overview}
+
+\begin{itemize}
+\item
+The importance assessment will be conducted trough the reliability of a generic structural member. 
+
+\item
+For this, first the structural resistance is determined by design according to codes. Choice of probabilistic models. This is further explained in SECTION. 
+
+\item
+Subsequently the load effects on the structural member are determined on the basis of literature and measurement data. Choice of probabilistic models need to be made. Different models will exist for different incident wind directions. See SECTION. 
+
+\item 
+Subsequently limit state function. These need to be made for each incident wind direction.  Furthermore it needs to be accounted for both faiolure modes: failure due to suction and failure due to compression. 
+
+\item 
+Subsequently it needs to be accounted for the system effects. Thereby it is assumed that it is a system that can fail due to wind coming from different incident wind directions. It needs to be accounted for correlations in the wind speed parameters as well as the resistance parameters.
+
+\item 
+Final beta-value used for comparison. 
+
+\end{itemize}
+
+
+\subsection{Limit state function}
+\begin{framed}
+Should we add here something like general principles regarding reliaiblity analysis? E.g. explanation of limit state functions etc. such as in Sedlacek? Then we could use something like that as an introduction to the methods used?
+\end{framed}
+
+\subsection{Load effect model}
+
+\subsubsection{Davenport Wind Loading Chain}
+
+
+
+
+
+\subsubsection{Adopted physical model}
+Though most codes of practice rely on the concepts of the DWLC, the numerical completion of the wind load model may be different for different codes.  
+
+Much effort has been put to put it into model. Often for the modeling of the fluctuations and such the quati-steady wind model where it is assumed that the pressures on the building surface follow  the variations in upwind velocity, i.e. it is assumed that a peak value of wind speed is accompanied by a peak value of pressure or load on the structure. \\
+\\
+The quasisteady model has been found to be fairly reliable for wind loading on small structures and is used in codes and .. \\
+
+WHERE DID I FIND THIS??
+\begin{framed}
+In most current design codes this is based on a WMO mean wind speed with a specified probability of occurrence. All countries that are members of the WMO produce wind statistics in the form of mean wind speeds taken over an averaging time of between 10 min and 1 h. In the UK an averaging period of an hour is used so, for convenience in all that follows, means will be described as hourly means, with the understanding that in other countries where a different averaging period is used, that average is implied. If another WMO averaging period is being used then some of the numerical constants that appear in the paper may need to be amended, however the results will not be influenced by that. 
+\end{framed}
+In current codes of practice, wind loads are treated as quasi-static loads. \\
+In this study, the general physical model is elaborated as follows. The model is based on the EN1991-1-4 action model for static (local) wind loads, however with the following adaptations:
+\begin{itemize}
+\item reformulated such that one can make use of peak external pressure coefficients obtained from wind tunnels
+\item reformulated such that the reference wind speeds does not necessarily belongs to the specified characteristics in the EC
+\item change of averaging time not 10 minutes but more general, lets say T. 
+\end{itemize}
+This means that the wind load per unit area becomes: 
+\begin{equation}\label{eq:wind_loads}
+S(\theta) = \frac{1}{2}\rho \bar{v}_T(\theta)^2 \cdot c_r(z, z_0(\theta), z_{ref})^2 \cdot  \hat{c}_{pe,T}(\theta) 
+\end{equation}
+Where\\
+\vspace{0.2cm}
+\begin{tabular}{l l}\\
+$\theta$ & is the incident wind direction with respect to the north\\
+$S$ & is the extreme wind load with a certain reference period [N]\\
+$\rho$ &  is the air density [kg/m$^3$]\\
+$\bar{v_T}$ & is the $N$-yearly extreme mean wind speed under standard terrain averaged over time T [m/s] with reference period $N$ \\
+$c_r(.)$ & is the roughness factor correcting for height and terrain roughness\\
+$z$ & the height on the structure [m]\\
+$z_0$ & is the terrain roughness  [m] \\
+$z_{0,ref}$ & is the reference terrain roughness for which the wind speeds are corrected [m]\\
+$\hat{c}_{pe,T}$ & the peak external pressure coefficient within time $T$ at the location of interest [-]\\
+\end{tabular}
+
+
+\subsubsection{Probabilistic model}
+Davenport states that the uncertainties in each of the links need to be taken into account probabilistically. He does however not state which if the elements within each of the links that should be. \\
+\\
+Key task is therefore to identify which of the components in there contribute most to the uncertainties in each of the links, and which may be kept deterministic. \\
+\\
+Guidance is provided in \cite{Kasperski_PAPER}. Also another earlier research \cite{meinen} has pointed the most relevant sources of uncertainties in the design of static elements loaded by local wind loads. The choice was made on:
+\begin{itemize}
+\item relative importance
+\item availability of literature / measurement data. 
+\end{itemize}
+This means that the following parameters in the wind load model shall be modeled probabilistically, others are kept deterministic:
+\begin{itemize}
+\item extreme reference averaged pressures
+\item the peak external pressure coefficients
+\item the terrain roughness factor as a whole 
+\item model uncertainty factors \added[id=NEM]{is not yet introduced though}
+\end{itemize}
+In the next sections it will be explained how they will be modeled exactly. 
+
+\begin{framed}
+Key assumptions of our probabilistic approach 
+\added[id=NEM]{I haven't found a place for it yet.}
+\begin{itemize}
+\item Elements are statistically independent (generally assumed, rectiefied by Cook and Mayne
+\item Peak load occurs when peak pressures and peak windspeeds come together. Corrections to this thought can be found in.. Harris etc. Dont know whether that is relevant to mention. 
+\end{itemize}
+\end{framed}
+
+
+\paragraph{Extreme wind speeds}
+For the modeling of extreme wind speeds / pressures use measurement data are being used. These measurement data consist of instantaneous T-averaged mean reference wind speeds with accompanying discretized incident wind directions. For convenience these are called the parent data in the following.
+\begin{itemize}
+\item 
+\textit{Directionality effects}\\
+As a consequence of wind directionality (caused by different underlying physical phenomena) the following important things need to be taken into account :
+\begin{itemize}
+\item 
+wind speed characteristics differ for different incident wind directions 
+\item 
+probabability of wind coming from a certain incident direction not uniformly distributed among the Wind Rose.
+\item 
+dependencies between (adjacent) (extreme) wind speeds
+\end{itemize}
+In the litarature a lot of discussion going on on the appropriateness of methods to take into account upper effects. See for example \cite{Morarty_1983} and \cite{Isyumov2014169}.\\
+\\
+In this research we apply the following method (SEARCH?). \added[id=NEM]{When to introduce the disadvantages?}\\
+The parent data are sub-divided into direction-dependent parent data. The probabilistic descriptions of the direction-dependent extreme wind speeds occur on the basis of these parent wind data. \\
+\\
+The probability of the incident wind coming from direction $\theta_i$ is estimated by the proportion of measurements coming from incident wind direction $\theta$, divided by the total number of wind speed measurements, i.e.:
+\begin{equation}
+P(\theta)=\frac{Nr(\theta)}{Nr}
+\end{equation} 
+The correlation between adjacent (extreme) wind speeds are taken into account by pierson correlation coefficient....  
+
+\begin{framed}
+Still say something like that we are going to apply a distribution function on each of these directional extremes - or is that unnecessary? 
+\end{framed}
+
+
+
+\item
+\textit{Distribution type and method}\\
+For the modeling of the extreme wind speeds the BM is applied with annual maxima. Thereby yearly extremes are obtained, distribution function is fitted and statistically extrapolated to larger return periods \added[id=NEM]{should we mention the formulas?}. Two distribution functions are applied. The Gumbel distribution and the W3 distribution. The used parametrisation of the distribution functions may be found in APPENDIX. \\
+\\
+Two remarks:
+\begin{itemize}
+\item The same method / distribution function will be applied for all incident wind directions without checking its appropriateness.
+\item the applied method for wind directionality is not perfect due to masking of gusts, see \cite{Moriarty_DIRECTIONALITY}. 
+\end{itemize}
+
+\item 
+\textit{Distribution parameter estimation}\\
+In this research for the parameter estimation the MLE method is being ised. \\
+\\
+Also effects of sampling uncertainties are taken into account. \\
+\\
+A lot of methods exist for that.\\
+\\
+Here we use the Bayesian method. \\
+\\
+Application of that see PAPER ARPAD.\\
+\\
+Prior distributions that are assumed are ....
+\end{itemize}
+
+
+\paragraph{Extreme pressure coefficients}
+On the basis of the probabilistic description of the direction-dependent hourly extreme peak external pressure coefficients lie instantaneous wind tunnel measurements which are processed to dimensionless pressure coefficients. Generally the wind tunnel measurements are performed for different incident wind directions. 
+\begin{itemize}
+\item
+\textit{Wind directionality and flow around the building}\\
+Depending on the incident wind-direction different flow phenomena may occur around the building, that, depending on the location on the building, either resulting in high pressure (represented by the maximum peak external pressure coefficients $\hat{c}_{pe}$), high suction (represented by the minimum peak external pressure coefficients $\check{c}_{pe}$) or both. 
+
+\added[id=NEM]{We have to think about whether we think there is correlation between maxima / minima and correlation between (adjacent) extremes and if so, how to take that into account in the reliability analysis.}
+
+\item 
+\textit{Extremal analysis method and distribution function}\\
+See wind speeds, similar description. \\
+\\
+State that a lot of discussion is going on on block-duration versus number of samples and refer to some of these discussions.  
+State that our choice of block-duration and nr of sdamples is going to be based on CUR-guidelines meaning at least ... number of 60s-extremes. This was also as proposed by Cook and Mayne based on theoretical considerations. Alternative methods are autocorrelation method from CITE. \\
+\\
+Two remarks:
+\begin{itemize}
+\item Except for papers focussing on the determination of block-duration vs. nr of sample data papers almost NEVER mention how they got their distribution functions of the pressure coefficients. 
+\end{itemize} 
+
+
+For practical implementation the described statistical method is adopted for each incident wind-direction $\theta_i$. 
+
+\item
+\textit{Parameter estimation technique}
+\added[id=NEM]{Should we make this a part of parameter estimation technique?}
+\end{itemize}
+
+\paragraph{Roughness factor}
+The roughness factor accounts for that and that. For the upwind terrain. The roughness factor is therefore a function of incident wind directionality.\\
+\\
+No probabilistic model exist on the level of the terrain roughness. However, accoridng to PMC, rouighness factor can lie between that and that with a mean to \\
+\\
+The Probabilistic Model Code on wind loads provides first estimates on the probabilistic modeling of the roughness factor / exposure factor. \\
+\\
+It is remarked that here the roughness factor is called exposure factor. \\
+\\
+Here the roughness factor squared is modeled by a two-parameter lognormal distribution, with a mean value of $\mu=0.8*c_{r,s}(\theta_i)^2$ and a coefficient of variation of V=0.15 [-]. \\
+It is remarked that in this approach it is assumed that the COV of the roughness as well as the distribution type is independent of the height of interest. \\
+\\
+To find out the influence of these choices.. the roughness factor will be subject to a parametric analysis for COV between 0.1 en 0.2. \\
+\\
+Here $c_{r,s}(\theta_i)^2$ represents the specified roughness factor according to the code. In this case the EC. \\
+\\
+Two remarks regarding this:
+\begin{itemize}
+\item My opinion: this value of 0.8 is super random. I think it belongs to the NBCC only and I think such a statements cannot really be generalized to all other builing codes just like that. How to state this?
+\end{itemize}
+
+
+\subsubsection{Model uncertainties}
+\begin{framed}
+In what will we vary here? Both in variance and distribution type? Or not at all... also fine by me? Does it make sense to vary these things here or should we better focus on other things?
+\end{framed}
+\begin{itemize}
+\item \textit{Uncertainty in the load-model}\\
+As stated bty Davenport, the wind loading chain is a quasi-static approach of the sitaution. This .. goes with the cost of model uncertainties within the wind load model. These are accounted for by the addition of a model uncertainty factor theta model.
+
+The model uncertainty factor $\chi_{model}$ is modeled by a normal distribution with mean $\mu=1$ [-] and coefficient of variation  V = 0.2 [-]. 
+
+Furhtermore there is the load effect thing that translates loads to load effects, i.e. pressures in the structural component. 
+The load effect uncertainties include approximation of the models assumed for the load and for the load effect calculation. 
+
+
+
+\item \textit{Uncertainty in the load-effect model}\\
+The uncertainties in the load effect are related to... The uncertainties are related to the failure mode under consideration.\\
+\\
+PMC gives handles to these uncertainties. \\
+Are eual to .. for steel in bending and .. for .. 
+
+\end{itemize}
+
+
+\subsubsection{Standards}
+Standards have also design values of the loads and load effects. To obtain the design value of the wind load use is made of the EC. For the exact values of these loads see appendix, there it is elaborated for the EC. 
+
+\subsection{Resistance model}
+
+
+\subsubsection{Physical model}
+The actual resistance model depends on the material type and failure mode considered. In this research a generic steel member is assessed. 
+The physical model for a generic steel member can be written like:
+
+\begin{equation}
+R = \theta_{\mathrm{R}} A f_{\mathrm{y}}
+\end{equation}
+Where:\\
+\vspace{0.2cm}
+\begin{tabular}{l l}
+$A$ & is the effective area of the steel member [mm$^2$] \\
+$f_{\mathrm{y}}$ & is the yield stress of the steel [N/mm$^2$]
+\end{tabular}
+
+\subsubsection{Probabilistic model}
+
+\begin{equation}
+R = \theta_{\mathrm{R}} A f_{\mathrm{y}}
+\end{equation}
+Where:\\
+\vspace{0.2cm}
+\begin{tabular}{l l}
+$\theta_{\mathrm{R}}$ & is the model uncertainty for the resistance model \\
+$A$ & is the effective area of the steel member [mm$^2$] \\
+$f_{\mathrm{y}}$ & is the yield stress of the steel [N/mm$^2$]
+\end{tabular}
+
+Each of the factors should be modeled probabilistically. For this see TABLE. 
+
+\subsubsection{Partial factor design of a steel member}
+Most codes work with partial factor design. This works as follows.\\ 
+\\
+The design resistance of a generic steel member may be expressed by the following relationship [SEDLACEK]:
+\begin{equation}
+R_{\mathrm{d}} = a\frac{f_{\mathrm{k}}}{\gamma_{\mathrm{M}}}
+\end{equation}
+Where $a$ denotes a design parameter depending ont he geometry and boundary conditions of the memberm $f_{\mathrm{k}}$ denotes the characteristic strength of the member and $\gamma_{\mathrm{M}}$ denotes the partial factor of the (uncertain) material property (WHAT IS MEANT BY THAT?). \\
+\\
+In case of optimal design, the design value of the structural resistance is equal to the design value of the load effects, i.e.:
+\begin{equation}
+R_d = E_d
+\end{equation}
+Where $E_d$ is determined as described above. \\
+\\
+Based on this knowledge, the minimum required design parameter can be determined by substituting.. and then rewriting:
+\begin{equation}
+a = \frac{ E_{\mathrm{d}} \gamma_{\mathrm{M}}} {f_{\mathrm{k}}} 
+\end{equation}
+Depending on the material property, the partial factor is normally within the interval of $\gamma_{M}=[1; 1.15]$.\\ 
+\\
+This also includes the model uncertainty thiung... 
+
+
+\subsection{Reliability analysis}
+
+REGARDING THE SYSTEM EFFECTS. 
+The direction-dependent failure probability $P_f(\theta_i)$ can be obtained by the summation of the failure probability caused by high pressure together with the failure probability caused by high suction. Therefore both the extreme maxima and extreme minima are of interest. These are indicated by... hat and non-hat.
+
+%\begin{figure}
+%\centering
+%\input{tikz/series_system}
+%\caption{\added[id=NEM]{Something like this to visualize how we incorporated system effects - maybe include also correlations or something}}
+%\end{figure}
+
+\subsubsection{System effects}
+A structural member can fail due to incident wind coming from different incident wind directions. Thereby there exists a certain corerlation between the (extreme) wind speeds from adjacent incident wind directions. \\
+\\
+Furthermore, within a certain incident wind direction, a structural member can fail due to either high compression forces or high suction forces.\\
+\\
+This means that the failure of a structural element may be modeled as a series system consisting of several elements - each for a certain incident wind directions - which are built up out of each two elements what are also a series system. This is displayed in figure FIGUIRE. 
+
+
+Given a certain incident wind direction
+
+\begin{itemize}
+\item by assuming a series system, i.e. when it fails due to incident wind from one direction then the thing has failed
+\item accounting for correlation in the resistance by implementation of correlation... pierson etc.
+\item it is assumed that there is no correlation between failure due to suction and failure due to compression
+\item assumption no correlation on the loading side? Or shall we just use obtained piersons for that based on measurement data?
+\end{itemize}
+
+\subsubsection{Limit state function}
+\begin{framed}
+Already introduct direction-dependent limit state function?
+\end{framed}
+Starting point of the reliability analysis is 
+a specific design situation describing all input parameters relevant for the design of the wind loaded structural member.  These include design parameters with respect to the structural resistance, $X_R$, and design parameters with respect to the loads, $X_S$. 
+
+The limit state function is related to the failure mode under consideration. It separates .. states from adverse states. 
+The general limit state function that will be used here is:
+
+\begin{equation}
+Z = R(X_r, \theta_R) - E(X_s, \theta_E)
+\end{equation}
+Where $\theta$ are model uncertainties. 
+
+
+\begin{framed}
+How are we going to introduce wind directionality here? The letter i indicates the specific incident wind direction??
+\end{framed}
+
+
+In case all the probabilistic models of all the stochasstic random variables have been oftained the reliability calculation can be performed. 
+\begin{itemize}
+	\item FROM reliability calculation
+	\item How system effects are taken into account / correlation etc.
+	\item Limit state functions
+\end{itemize}
+
+
+
+
+
+%\end{document}
+

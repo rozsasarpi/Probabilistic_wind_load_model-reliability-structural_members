@@ -1,0 +1,248 @@
+%\documentclass[fleqn]{report}
+%\usepackage{graphicx} % om PostScript plaatje in te lassen
+%\usepackage{here}     % voor geforceerde plaatsing figuren
+%\usepackage{amsmath}
+%\textwidth=17.0cm
+%\textheight=22.0cm
+%\topmargin=-1cm
+%\oddsidemargin=-0.3cm
+%\evensidemargin=-0.3cm
+%
+%%packages
+%\usepackage{amsmath}
+%\usepackage{cite}
+%\usepackage[toc,page]{appendix}
+%\usepackage{fancyvrb}
+%\usepackage{tikz}
+%\usepackage{multicol}
+%\usepackage{framed}
+%\usepackage{pgfplots}
+%\usepackage{fixltx2e}
+%\usepackage{subfigure}
+%\usepackage{lscape}
+%\usepackage{enumitem}
+%\usepackage{multirow}
+%\usepackage{color}
+%
+%%tikz labraries
+%\usetikzlibrary{matrix}
+%\usetikzlibrary{decorations.pathreplacing}
+%\usetikzlibrary{positioning}
+%\usetikzlibrary{calc}
+%\usetikzlibrary{shapes,arrows, chains}
+%\usetikzlibrary{intersections}
+%\usetikzlibrary{decorations.markings}
+%\usetikzlibrary{calc,intersections}
+%\usetikzlibrary{patterns}
+%\usepackage{xcolor}
+%
+%%\usetikzlibrary{decorations.pathreplacing,bending}
+%
+%%extra instellingen
+%\newlist{aims}{enumerate}{1}
+%\setlist[aims,1]{
+%  label={*},
+%  leftmargin=*,
+%  align=left,
+%  labelsep=2mm,
+%}
+%
+%\newlist{aims2}{enumerate}{1}
+%\setlist[aims2,1]{
+%  label={},
+%  leftmargin=0pt,
+%  align=left,
+%  labelsep=4mm,
+%}
+%
+%\newlist{aims3}{enumerate}{1}
+%\setlist[aims3,1]{
+%  label={-},
+%  leftmargin=2cm,
+%  align=left,
+%  labelsep=0.4mm,
+%}
+%
+%\makeatletter
+%\def\mathcolor#1#{\@mathcolor{#1}}
+%\def\@mathcolor#1#2#3{%
+%  \protect\leavevmode
+%  \begingroup
+%    \color#1{#2}#3%
+%  \endgroup
+%}
+%\makeatother
+%
+%
+%% overige instellingen
+%\makeatletter
+%\newcommand\frontmatter{%
+%    \cleardoublepage
+%  \@mainmatterfalse
+%  \pagenumbering{roman}}
+%\newcommand\mainmatter{%
+%    \cleardoublepage
+%  \@mainmattertrue
+%  \pagenumbering{arabic}}
+%\newcommand\backmatter{%
+%  \if@openright
+%    \cleardoublepage
+%  \else
+%    \clearpage
+%  \fi
+% \@mainmatterfalse}
+%\makeatother
+%
+%
+%
+%
+%\begin{document}
+
+
+\begin{tikzpicture}[scale=1]
+\footnotesize
+% TOTAL EXTERNAL LOAD
+\begin{scope}[shift={(3.5,0)}]
+\node at (1,-1) {$S(\theta_i) = \frac{1}{2}\cdot\rho\cdot v_{hr,N}(\theta_i)^2 \cdot c_r(\theta_i)^2 \cdot \hat{c}_{pe,hr}(\theta_i) \cdot A_{ref} \cdot \chi_{model}$};
+\pgfmathdeclarefunction{Gumbel}{2}{%
+\pgfmathparse{#2*exp(-#2*(x-#1)-exp(-#2*(x-#1))}%
+}
+
+\begin{axis}[
+height=3cm, 
+width=5cm,
+no markers, domain=-8:17, samples=100,
+every axis x label/.style={at=(current axis.right of origin),anchor=west},
+axis lines*=left, 
+%xlabel= $F_{wind}(z_e)$, 
+xtick=\empty, 
+ytick=\empty,
+enlargelimits=false, clip=false, axis on top,
+]
+
+\addplot [thick,black, pattern=north west lines, pattern color=gray] {Gumbel(1,0.3)}\closedcycle;   
+\end{axis}
+
+\end{scope}
+
+\begin{scope}[shift={(0,0.5)}]
+
+\node at (7.5,-0.6) {$S(\theta_i)$};
+
+
+% BASIC WIND VELOCITY
+\begin{scope}[shift={(1.5,-3.5)}]
+\pgfmathdeclarefunction{Normal}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-(x-#1)^2/(2*#2^2))}%
+}
+\begin{axis}[
+height=2.5cm, 
+width=3.2cm,
+no markers, domain=-8:17, samples=100,
+axis lines*=left, 
+%xlabel= $v_b$, 
+xtick=\empty, 
+ytick=\empty,
+enlargelimits=false, clip=false, axis on top,
+]
+\addplot [thick,black, pattern=north west lines, pattern color=gray] {Normal(1,3)}\closedcycle;   
+\end{axis}
+%\node [align=left] at (1.3,1)  {$\mu_{v_b}$ \\ V$_{v_b}$};
+\end{scope}
+
+% ROUGHNESS FACTOR
+\begin{scope}[shift={(3.5,-3.5)}]
+\pgfmathdeclarefunction{Normal}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-(x-#1)^2/(2*#2^2))}%
+}
+\begin{axis}[
+height=2.5cm, 
+width=3.2cm,
+no markers, domain=-8:17, samples=100,
+axis lines*=left, 
+%xlabel= $c_e(z)$, 
+xtick=\empty, 
+ytick=\empty,
+enlargelimits=false, clip=false, axis on top,
+]
+
+\addplot [thick,black, pattern=north west lines, pattern color=gray] {Normal(1,3.4)}\closedcycle;   
+\end{axis}
+
+%\node [align=left] at (1.3,1)  {$\mu_{S_v}$\\ V$_{S_v}$};
+\end{scope}
+
+
+% pressure coefficient
+\begin{scope}[shift={(5.5,-3.5)}]
+\pgfmathdeclarefunction{Normal}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-(x-#1)^2/(2*#2^2))}%
+}
+\begin{axis}[
+height=2.5cm, 
+width=3.2cm,
+no markers, domain=-8:17, samples=100,
+axis lines*=left, 
+%xlabel= $c_sc_d$, 
+xtick=\empty, 
+ytick=\empty,
+enlargelimits=false, clip=false, axis on top,
+]
+
+\addplot [thick,black, pattern=north west lines, pattern color=gray] {Normal(1,3.4)}\closedcycle;   
+\end{axis}
+
+%\node [align=left] at (1.3,1)  {$\mu_{c_{pe}}$\\ V$_{c_{pe}}$};
+
+\end{scope}
+
+% model uncertainty factor
+\begin{scope}[shift={(7.5,-3.5)}]
+\pgfmathdeclarefunction{Normal}{2}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-(x-#1)^2/(2*#2^2))}%
+}
+\begin{axis}[
+height=2.5cm, 
+width=3.2cm,
+no markers, domain=-8:17, samples=100,
+axis lines*=left, 
+%xlabel= $c_sc_d$, 
+xtick=\empty, 
+ytick=\empty,
+enlargelimits=false, clip=false, axis on top,
+]
+
+\addplot [thick,black, pattern=north west lines, pattern color=gray] {Normal(1,3.4)}\closedcycle;   
+\end{axis}
+
+%\node [align=left] at (1.3,1)  {$\mu_{\chi}$\\ V$_{\chi}$};
+\end{scope}
+
+\end{scope}
+
+\footnotesize
+
+\draw [->]  (2,-1.8) -- (2.8,-1.2); %vb
+\draw [->]  (4,-1.8) -- (4.3,-1.2); %cr
+\draw [->] (6,-1.8) -- (5.6,-1.2) ; %cp
+\draw [->]  (8,-1.8) -- (7.6,-1.2); %X
+
+\begin{scope}[shift={(2.3,-3.3)}]
+\node [align=center] at (0,0) {Measurements};
+\node [align=center] at (2,0) {Literature};
+\node [align=center] at (4,0) {Measurements};
+\node [align=center] at (6,0) {Literature}; 
+
+\end{scope}
+
+\begin{scope}[shift={(1.3,-4)}]
+\node [align=center] at (0,0) {};
+\node [align=center] at (2,0) {};
+\node [align=center] at (4,0) {};
+\node [align=center] at (6,0) {}; 
+\node [align=center] at (8,0) {}; 
+\end{scope}
+
+\end{tikzpicture}
+%
+%\end{document}

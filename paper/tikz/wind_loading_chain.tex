@@ -1,0 +1,14 @@
+\begin{tikzpicture}[node distance = 3 cm, auto]
+% tikz settings
+\footnotesize
+\tikzstyle{block} = [ellipse, draw,  
+    text width=2.2cm, text centered,  rounded corners ,minimum height=1.5cm]
+\tikzstyle{line} = [draw, latex-latex]
+
+% the tikz picture
+\node [block, align=center] (windclimate) {Wind climate \\ $v_b$};
+\node [block, align=center, right of=windclimate] (influenceofterrain) {Influence of terrain \\ $c_e$ };
+\node [block, align=center, right of=influenceofterrain] (Aerodynamic) {Aerodynamic coefficients \\ $c_f$};
+\node [block, align= center, right of=Aerodynamic] (Dynamic) {Dynamic effects \\ $c_sc_d$};
+\node [block, align=center, right of=Dynamic] (criteria) {Criteria};
+\end{tikzpicture}

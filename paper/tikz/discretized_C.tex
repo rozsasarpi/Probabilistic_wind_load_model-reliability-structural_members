@@ -1,0 +1,158 @@
+%\documentclass[fleqn]{report}
+%\usepackage{graphicx} % om PostScript plaatje in te lassen
+%\usepackage{here}     % voor geforceerde plaatsing figuren
+%\usepackage{amsmath}
+%\textwidth=17.0cm
+%\textheight=22.0cm
+%\topmargin=-1cm
+%\oddsidemargin=-0.3cm
+%\evensidemargin=-0.3cm
+%
+%%packages
+%\usepackage{amsmath}
+%\usepackage{cite}
+%\usepackage[toc,page]{appendix}
+%\usepackage{fancyvrb}
+%\usepackage{tikz}
+%\usepackage{multicol}
+%\usepackage{framed}
+%\usepackage{pgfplots}
+%%\usepgfplotslibrary{fillbetween}
+%\usepackage{fixltx2e}
+%\usepackage{subfigure}
+%\usepackage{lscape}
+%\usepackage{enumitem}
+%\usepackage{filecontents}
+%\usetikzlibrary{decorations.pathmorphing}
+%\usepackage{lmodern}
+%\usepackage{pgfplotstable}
+%
+%\usetikzlibrary{arrows}
+%%\usetikzlibrary{arrows.meta}
+%
+%
+%
+%\usetikzlibrary{decorations.pathreplacing,decorations.markings,snakes}
+%
+%%tikz labraries
+%\usetikzlibrary{matrix}
+%\usetikzlibrary{decorations.pathreplacing}
+%\usetikzlibrary{positioning}
+%\usetikzlibrary{calc}
+%\usetikzlibrary{shapes,arrows, chains}
+%\usetikzlibrary{patterns}
+%
+%\usetikzlibrary{intersections}
+%\usetikzlibrary{decorations.markings}
+%\usetikzlibrary{calc,intersections}
+%%\usetikzlibrary{decorations.pathreplacing,bending}
+%
+%%extra instellingen
+%\newlist{aims}{enumerate}{1}
+%\setlist[aims,1]{
+%  label={*},
+%  leftmargin=*,
+%  align=left,
+%  labelsep=2mm,
+%}
+%
+%\newlist{aims2}{enumerate}{1}
+%\setlist[aims2,1]{
+%  label={},
+%  leftmargin=0pt,
+%  align=left,
+%  labelsep=4mm,
+%}
+%
+%\newlist{aims3}{enumerate}{1}
+%\setlist[aims3,1]{
+%  label={-},
+%  leftmargin=2cm,
+%  align=left,
+%  labelsep=0.4mm,
+%}
+%
+%\usepackage{pgfplots}
+%
+%\begin{document}
+%\begin{figure}
+%\centering
+%
+%
+
+
+
+
+
+\begin{tikzpicture}[scale=2.5]
+
+\footnotesize
+
+\begin{scope}[rotate=-22.5]
+
+\filldraw[fill=black!10] (0,1) arc (90:120:1cm);
+\draw[black!10, fill=black!10] (0,0) -- ($(0,0)!1cm!(0,1)$) to ($(0,0)!1cm!(-0.37,0.65)$)  -- cycle;
+
+\begin{scope}[rotate=60]
+\filldraw[fill=black!10] (0,1) arc (90:120:1cm);
+\draw[black!10, fill=black!10] (0,0) -- ($(0,0)!1cm!(0,1)$) to ($(0,0)!1cm!(-0.37,0.65)$)  -- cycle;
+\end{scope}
+
+\begin{scope}[rotate=120]
+\filldraw[fill=black!10] (0,1) arc (90:120:1cm);
+\draw[black!10, fill=black!10] (0,0) -- ($(0,0)!1cm!(0,1)$) to ($(0,0)!1cm!(-0.37,0.65)$)  -- cycle;
+\end{scope}
+
+\begin{scope}[rotate=180]
+\filldraw[fill=black!10] (0,1) arc (90:120:1cm);
+\draw[black!10, fill=black!10] (0,0) -- ($(0,0)!1cm!(0,1)$) to ($(0,0)!1cm!(-0.37,0.65)$)  -- cycle;
+\end{scope}
+
+\begin{scope}[rotate=240]
+\filldraw[fill=purple!10] (0,1) arc (90:120:1cm);
+\draw[black!10, fill=black!10] (0,0) -- ($(0,0)!1cm!(0,1)$) to ($(0,0)!1cm!(-0.37,0.65)$)  -- cycle;
+\end{scope}
+
+\begin{scope}[rotate=300]
+\filldraw[fill=black!10] (0,1) arc (90:120:1cm);
+\draw[black!10, fill=black!10] (0,0) -- ($(0,0)!1cm!(0,1)$) to ($(0,0)!1cm!(-0.37,0.65)$)  -- cycle;
+\end{scope}
+\end{scope}
+
+\begin{scope}[rotate=7.5]
+\foreach \i in {0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345}
+{
+\draw [gray, rotate=\i] (0,-1) -- (0,1);
+}
+\foreach \i in {0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330}
+{
+\draw [black, rotate=\i] (0,-1) -- (0,1);
+}
+\end{scope}
+
+\draw (0,0) circle (1cm);
+
+
+\begin{scope}[rotate=90]
+\foreach \k in {0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300, 315, 330, 345}
+{
+\node at (-\k:1.15) {\k $^{\circ}$};
+}
+\end{scope}
+
+
+\begin{scope}[scale=0.3]
+\begin{scope}[shift={(0,-1)}]
+\footnotesize
+\draw [fill=white] (-1, -1) rectangle (1,1);
+\draw [fill=black] (0, 1) circle (0.1);
+\node [below, align=center] at (0,1) {$\uparrow$ \\ fa\c{c}ade \\ element};
+\end{scope}
+\end{scope}
+
+
+\end{tikzpicture}
+
+%\end{figure}
+%
+%\end{document}

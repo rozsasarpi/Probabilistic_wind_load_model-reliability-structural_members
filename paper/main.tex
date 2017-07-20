@@ -1,0 +1,79 @@
+\documentclass[fleqn]{article}
+\usepackage{graphicx} 
+\usepackage{here}    
+\usepackage{amsmath}
+\textwidth=15.0cm
+\textheight=22.0cm
+\topmargin=-1cm
+\oddsidemargin=-0.3cm
+\evensidemargin=-0.3cm
+
+
+%packages
+\usepackage{amsmath}
+\usepackage{cite}
+\usepackage[toc,page]{appendix}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{framed}
+\usepackage{pgfplots}
+\usepackage{fixltx2e}
+\usepackage{subfigure}
+\usepackage{lscape}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{comment}
+\usepackage{changes}
+\renewcommand*\descriptionlabel[1]{\hspace\leftmargin$#1$}
+
+%tikz labraries
+\usetikzlibrary{matrix}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes,arrows, chains}
+\usetikzlibrary{intersections}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{calc,intersections}
+\usetikzlibrary{patterns}
+
+
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+%##### DEFINE YOUR NAME #########################
+\definechangesauthor[color=blue,name={Arpad Rozsas}]{AR}
+\definechangesauthor[color=red,name={Nadieh Meinen}]{NEM}
+%###########################################
+
+\begin{document}
+
+
+
+\pagebreak
+
+
+\input{CH0_preamble}
+\input{CH1_introduction}
+\input{CH2_literature_review}
+\input{CH3_methodology}
+\input{CH4_case_study}
+\input{CH5_discussion}
+\input{CH6_conclusions}
+\input{CHZ_leftover_material}
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{References}
+
+\end{document}

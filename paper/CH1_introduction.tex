@@ -1,0 +1,135 @@
+\documentclass[fleqn]{article}
+\usepackage{graphicx} 
+\usepackage{here}    
+\usepackage{amsmath}
+\textwidth=15.0cm
+\textheight=22.0cm
+\topmargin=-1cm
+\oddsidemargin=-0.3cm
+\evensidemargin=-0.3cm
+
+
+%packages
+\usepackage{amsmath}
+%\usepackage{cite}
+\usepackage[toc,page]{appendix}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{framed}
+\usepackage{pgfplots}
+\usepackage{fixltx2e}
+\usepackage{subfigure}
+\usepackage{lscape}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{comment}
+\usepackage{changes}
+\renewcommand*\descriptionlabel[1]{\hspace\leftmargin$#1$}
+
+%tikz labraries
+\usetikzlibrary{matrix}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes,arrows, chains}
+\usetikzlibrary{intersections}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{calc,intersections}
+\usetikzlibrary{patterns}
+
+
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+%##### DEFINE YOUR NAME #########################
+\definechangesauthor[color=blue,name={Arpad Rozsas}]{AR}
+\definechangesauthor[color=red,name={Nadieh Meinen}]{NEM}
+%###########################################
+
+\begin{document}
+
+% -----------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------
+\section{Introduction}
+
+% -----------------------------------------------------------------------------------------------
+\subsection{Motivation}
+
+Wind is the governing environmental action for many structures; particularly for structural members which can be especially vulnerable to wind loading [ref]. In practice, these structural members are designed using semi-probabilistic design methods, such as partial factor design, or load resistance factor design. To guarantee a safe design these semi-probabilistic methods are (should be) calibrated to codified target reliability levels. For this reliability-based calibration physical models and probabilistic models are needed. The former captures the underlying physical phenomena while the latter accounts for the associated uncertainties. In respect of structural members subject to wind, the probabilistic model of the wind load typically dominates the reliability; therefore, its correct modeling is of crucial importance. The widely accepted and applied Davenport wind load chain (DWLC) is considered here as the starting point of our investigation. The probabilistic description of uncertainties in this wind load chain is still under active debate despite the numerous advances in wind engineering [ref]. For instance, the decision on which distribution type to be used for wind extremes can lead to an order of magnitude difference in calculated failure probabilities [ref]. Other decisions and modeling choices can have similar bearing on the calculated failure probability. Therefore, it is of great importance to explore these decisions and associated uncertainties. Furthermore, some aspects, such as the effect of wind directionality and handling of statistical uncertainties, are not yet sufficiently explored. These issues are of particular interest for standardization committees which have few, well-reasoned guidance on probabilistic wind load models. Hence, the aim of this paper is to investigate the effect of some modeling choices and prevalently overlooked aspects using a comprehensive framework by assessing their practical, engineering relevance.
+
+% -----------------------------------------------------------------------------------------------
+\subsection{Problem statement}
+
+The typical approach in investigating the influence of modeling choices in the probabilistic wind load chain (DWLC) concentrates on the in-depth analysis of selected links in the chain. Due to this isolated treatment the modeling choices are often compared on the basis of measures with low to moderate engineering relevance, e.g. using statistical goodness-of-fit measures [ref] or comparing representative fractiles [ref]. Given that design methods should ensure a minimum target reliability level we adapt structural reliability as a measure with high practical relevance to evaluate modeling choices. This entails that all relevant parameters in the structural reliability problem be represented with probabilistic models, e.g. modeled as random variables. Although there are studies that consider all relevant parameters with probabilistic models they lack the comparison of alternative modeling choices []. Furthermore, certain aspects of the wind load chain have received less attention, for example the effect of wind directionality and statistical uncertainties due to data scarcity are often neglected [ref]. A more detailed overview of previous works is given in Section \ref{sec:review}.
+
+The shortcomings of previous studies can be categorized as: (\textit{i}) not all links in the wind load chain are represented with probabilistic models; (\textit{ii}) alternative modeling choices are not compared; (\textit{iii}) measures with low or moderate engineering relevance are used to compare the modeling choices.
+This paper attempts to address these shortcomings; however, it is acknowledged that such broad questions cannot be thoroughly covered and answered in a single paper. Our main contributions are (\textit{i}) the proposal of a framework (with accompanied computer code) that represent all relevant parameters as random variables; and (\textit{ii}) the comparison of selected modeling choices, e.g. distribution type, wind directionality, and statistical uncertainties, on structural reliability. Accordingly the primary research questions of this paper are formulated as:
+
+\textit{What is the effect of probabilistic modeling decisions in the Davenport wind load chain, such as wind directionality and statistical uncertainties, on the reliability of structural members? Which components and decisions are the most important ones?}
+
+%Emphasize that we do not really contribute to the debate which one is to be used we just show the complete analysis and the impact on structural reliability. Identify the components which should be further investigated.
+
+As side product of answering the primary questions one can answer some secondary questions as well. These are more relevant for practitioners and standardization committees:
+
+\textit{What is the reliability level of wind loaded structural members designed according to Eurocodes? Are the current methods ensuring the target reliability level?}
+
+ 
+ % -----------------------------------------------------------------------------------------------
+\subsection{Adopted approach and contributions}
+
+To investigate the effect of the modeling choices on structural reliability of structural members a case study is set up which serves as the main vehicle of illustration throughout this study. It is a fictitious high rise building located in Schiphol, the Netherlands. Multiple locations on the facade are considered for the structural member to explore the effect of different pressure zones. The structural member is generic which can be tuned by a couple of parameters, e.g. coefficient of variation of the resistance and associated partial factor, to represent a wide range of design situations. We surmise that the case study is sufficiently flexible and generic to allow fairly general conclusions. To have a realistic design the structural member is designed according to the general recommendations of the Eurocode. Other international standards, such as ASCE-7, AISC, [ETC] could be easily adopted as they are based on similar principles (wind load model and semi-probabilistic safety format). Note that this decision does not affect the answers given to the primary questions, but influences solely the secondary ones.
+The Davenport wind load chain is selected as the basis of the wind load model. Its probabilistic models are established based on measurements (wind speed, pressure coefficients) and on literature (rest of the parameters).
+
+The following effects and aspects are investigated by the means of the case study:
+\begin{itemize}
+	\item Wind directionality using:
+	\begin{itemize}
+		\item wind speed extremes in twelve directions (sectors with central angle of $30^{\circ}$) based on on-site measurements;
+		\item maximum and minimum pressure coefficient extremes in twelve directions (sectors with central angle of $30^{\circ}$) based on wind tunnel measurements.
+	\end{itemize}
+	\item Distribution type of wind speed and pressure coefficient extremes: Gumbel and three-parameter Weibull distributions are considered, both are maxima types.
+	\item Distribution type and coefficient of variation of roughness factor.
+	\item Block size for extracting extremes for pressure coefficients: 10~min, 1~min, 10~s block sizes are considered.
+	\item Parameter estimation uncertainty in the distribution of wind speed and pressure coefficient extremes.
+	\item Multiple building orientations (rotation the building with angles $0-360^{\circ}$.
+	\item Multiple structural member locations on the facade (DETAILS).
+	\item Coefficient of variation and partial factor of the resistance.
+\end{itemize}
+
+The analysis framework – consisting the pre-processing of measurements, fitting distribution functions, conducting reliability analysis, and post-processing the results – is implemented as a computer code (in Matlab language). It is made freely available to facilitate collaboration and reproducibility (link). It is intended to serve as a basis for future, more focused and comprehensive analysis on selected components and aspects.
+
+ % -----------------------------------------------------------------------------------------------
+\subsection{Scope}
+
+The scope of the paper is limited to:
+\begin{itemize}
+	\item Structural reliability of a component is investigated, i.e. structural system effects where multiple failing elements and/or multiple failure mode of the same elements are contributing to the failure probability are not taken into account.
+	\item Only local wind loads are considered, i.e. wind loads on reference areas less than 10m$^2$.
+	\item Dynamically insensitive structural elements, i.e. the natural frequency of the element lies below the natural frequency of the incident winds \added[id=AR]{(explain or reformulate)} \cite{}.
+	\item •	Situations where wind loads are assumed to be the dominant load and load types (variable and/or permanent) are negligible.
+	\item Only ultimate limit states are considered.
+	\item Temperate wind climates (like mid-latitude depressions) only, i.e. the influence of small-scale weather systems such as hurricanes / thunderstorms is assumed to be negligible Maybe not always rectified SEE PAPERS however generally assumed (Research towards mixed climates. What to do with this: \cite{Gomes_1978}\cite{Harris_2017})?.
+	\item Situations where the wind flow is not influences by either topography (mountains) or surrounding buildings.
+\end{itemize}
+
+Furthermore throughout the paper it is assumed that  the wind climate is stationary, i.e. the effects climate change have not been taken into account. 
+
+ % -----------------------------------------------------------------------------------------------
+\subsection{Outline}
+
+The outline of this paper is as follows. In section \ref{sec:methodology} the methodology is describes which will be used for the analysis. In section \ref{case_study} the details and the results of the case-study are presented. In section \ref{discussion} the results of the case-study and the potential of the assessment procedure are discussed. In section \ref{conclusions} the conclusions and recommendations are provided. 
+
+
+%\end{introduction}
+
+\end{document}
